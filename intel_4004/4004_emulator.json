@@ -1,0 +1,9 @@
+{
+	"mappings": {
+		"src/bin/4004-emulator.elf": "/BIN/4004-emulator.elf",
+		"src/roms/bin/RDn": "/EXAMPLES/4004_RDn.bin",
+		"src/roms/bin/WDn": "/EXAMPLES/4004_WDn.bin",
+		"src/roms/bin/WRM": "/EXAMPLES/4004_WRM.bin"
+	},
+	"name": "4004 emulator"
+}

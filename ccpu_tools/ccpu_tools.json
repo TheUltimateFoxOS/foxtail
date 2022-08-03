@@ -1,0 +1,13 @@
+{
+	"mappings": {
+		"src/disk/BIN/ccpu-as.elf": "/BIN/ccpu-as.elf",
+		"src/disk/BIN/ccpu-disas.elf": "/BIN/ccpu-disas.elf",
+		"src/disk/BIN/ccpu-emu.elf": "/BIN/ccpu-emu.elf",
+
+		"src/examples/fib.asm": "/EXAMPLES/ccpu_fib.asm",
+		"src/examples/direct_jump.asm": "/EXAMPLES/ccpu_direct_jump.asm",
+		"src/examples/cond_jmp.asm": "/EXAMPLES/ccpu_cond_jump.asm",
+		"src/examples/memory.asm": "/EXAMPLES/ccpu_memory.asm"
+	},
+	"name": "ccpu tools"
+}
