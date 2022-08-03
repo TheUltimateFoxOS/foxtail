@@ -1,0 +1,8 @@
+{
+	"mappings": {
+		"src/bin/intel_gpu.o": "/BOOT/MODULES/intel_gpu.o"
+	},
+	"name": "intel gpu",
+	"command": "safm $ROOT_FS/BOOT/MODULES $ROOT_FS/BOOT/initrd.saf",
+	"license": "src/lil/LICENSE"
+}
