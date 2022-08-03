@@ -9,5 +9,6 @@
 		"src/examples/cond_jmp.asm": "/EXAMPLES/ccpu_cond_jump.asm",
 		"src/examples/memory.asm": "/EXAMPLES/ccpu_memory.asm"
 	},
-	"name": "ccpu tools"
+	"name": "ccpu tools",
+	"license": "src/LICENSE"
 }

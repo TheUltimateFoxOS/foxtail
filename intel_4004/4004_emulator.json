@@ -5,5 +5,6 @@
 		"src/roms/bin/WDn": "/EXAMPLES/4004_WDn.bin",
 		"src/roms/bin/WRM": "/EXAMPLES/4004_WRM.bin"
 	},
-	"name": "4004 emulator"
+	"name": "4004 emulator",
+	"license": "src/LICENSE"
 }

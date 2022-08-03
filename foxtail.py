@@ -19,6 +19,8 @@ struct file_mapping {
 
 char* command = {{command}};
 
+char* license = {{license}};
+
 int main() {
 	printf("going to install {{name}} (%d files)\\n", sizeof(files) / sizeof(struct file_mapping));
 	printf("do you want to continue? (y/n) ");
@@ -26,6 +28,18 @@ int main() {
 	if (c != 'y') {
 		printf("\\naborting\\n");
 		return 0;
+	}
+
+	printf("\\n");
+
+	if (license != NULL) {
+		printf("%s\\n", license);
+		printf("do you accept the license? (y/n) ");
+		c = getchar();
+		if (c != 'y') {
+			printf("\\naborting\\n");
+			return 0;
+		}
 	}
 
 	printf("\\n");
@@ -86,12 +100,16 @@ def gen_data(file):
 mapping = {}
 installer_name = ""
 command = "NULL"
+license = "NULL"
 with open(sys.argv[1], 'r') as f:
 	json_data = json.load(f)
 	mapping = json_data['mappings']
 	installer_name = json_data['name']
 	if 'command' in json_data:
 		command = '"' + json_data['command'] + '"'
+	if 'license' in json_data:
+		with open(json_data['license'], 'r') as l:
+			license = '"' + l.read().replace('\n', '\\n').replace('"', '\\"') + '"'
 
 file_data = ""
 file_names = {}
@@ -108,4 +126,4 @@ for file in mapping:
 mappings_struct += "};"
 
 with open(sys.argv[2], 'w') as f:
-	f.write(src.replace("{{data}}", file_data).replace("{{mappings}}", mappings_struct).replace("{{name}}", installer_name).replace("{{command}}", command))
+	f.write(src.replace("{{data}}", file_data).replace("{{mappings}}", mappings_struct).replace("{{name}}", installer_name).replace("{{command}}", command).replace("{{license}}", license))
