@@ -1,0 +1,10 @@
+{
+	"mappings": {
+		"figlet/bin/figlet.elf": "/BIN/figlet.elf",
+		"fonts/3-d.figl": "/RES/3-d.figl",
+		"fonts/graffiti.figl": "/RES/graffiti.figl",
+		"fonts/speed.figl": "/RES/speed.figl"
+	},
+	"name": "figlet",
+	"license": "LICENSE"
+}

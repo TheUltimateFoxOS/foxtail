@@ -15,3 +15,4 @@ mkdir -p pkgs
 build_dir intel_4004
 build_dir ccpu_tools
 build_dir intel_gpu
+build_dir figlet
