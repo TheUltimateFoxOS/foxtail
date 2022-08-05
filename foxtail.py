@@ -1,10 +1,13 @@
 import sys
 import struct
 import json
+import gzip
+
 
 src = """
 #include <stdio.h>
 #include <stdlib.h>
+#include <tinf.h>
 
 {{data}}
 
@@ -20,6 +23,10 @@ struct file_mapping {
 char* command = {{command}};
 
 char* license = {{license}};
+
+static unsigned int read_le32(const unsigned char *p) {
+	return ((unsigned int) p[0]) | ((unsigned int) p[1] << 8) | ((unsigned int) p[2] << 16) | ((unsigned int) p[3] << 24);
+}
 
 int main() {
 	printf("going to install {{name}} (%d files)\\n", sizeof(files) / sizeof(struct file_mapping));
@@ -51,14 +58,26 @@ int main() {
 
 		printf("Extracting %s... ", final_path);
 
+		unsigned int dlen = read_le32(file->content + file->size - 4);
+		char* dest = (char*) malloc(dlen);
+		unsigned int outlen = dlen;
+		int res = tinf_gzip_uncompress(dest, &outlen, file->content, file->size);
+		
+		if ((res != TINF_OK) || (outlen != dlen)) {
+			printf("decompression failed\\n");
+			free(dest);
+			abort();
+		}
+
 		FILE* f = fopen(final_path, "wb");
 		if (f == NULL) {
 			printf("Failed to open file %s\\n", final_path);
 			return 1;
 		}
 
-		fwrite(file->content, 1, file->size, f);
+		fwrite(dest, 1, outlen, f);
 		fclose(f);
+		free(dest);
 
 		printf("Done\\n");
 	}
@@ -85,6 +104,7 @@ def gen_data(file):
 	out = ""
 	with open(file, 'rb') as f:
 		data = f.read()
+		data = gzip.compress(data)
 		out += 'const unsigned char {}[] = {{\n'.format(normalized_name)
 		for i in range(0, len(data), 16):
 			out += '    '
