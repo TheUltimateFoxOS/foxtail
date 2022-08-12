@@ -1,0 +1,7 @@
+{
+	"mappings": {
+		"pride/bin/pride.elf": "/BIN/pride.elf"
+	},
+	"name": "pride",
+	"license": "LICENSE"
+}
