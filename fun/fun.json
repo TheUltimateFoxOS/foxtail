@@ -1,0 +1,11 @@
+{
+	"mappings": {
+		"progs/bin/lolcat.elf": "/BIN/lolcat.elf",
+		"progs/bin/matrix.elf": "/BIN/matrix.elf",
+		"progs/bin/paint.elf": "/BIN/paint.elf",
+		"progs/bin/tic_tac_toe.elf": "/BIN/tic_tac_toe.elf",
+		"progs/nyanmbr/bin/nyanmbr.elf": "/BIN/nyanmbr.elf"
+	},
+	"name": "Fun programs",
+	"license": "LICENSE"
+}
