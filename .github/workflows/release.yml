@@ -28,7 +28,7 @@ jobs:
         cd FoxOS
         make all install_sdk
     - name: build
-      run: bash build.sh
+      run: bash build_packets.sh
     - uses:  marvinpinto/action-automatic-releases@latest
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
