@@ -28,7 +28,7 @@ jobs:
         cd FoxOS
         make all install_sdk
     - name: install build tools
-      run: apt install node python3 -y
+      run: apt install nodejs python3 -y
     - name: build
       run: bash build_packets.sh
     - uses:  marvinpinto/action-automatic-releases@latest
