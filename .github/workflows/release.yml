@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: [ubuntu-latest]
+    container:
+      image: ghcr.io/theultimatefoxos/foxos-toolchain:latest
 
     steps:
     - uses: actions/checkout@v3
@@ -20,10 +22,8 @@ jobs:
         git config --global user.name "Your Name"
     - name: Install toolchain
       run: |
-        sudo apt install graphicsmagick-imagemagick-compat mtools lbzip2 curl bison flex gcc g++ unzip dosfstools automake build-essential nasm qemu-utils gdisk git -y
         git clone https://github.com/TheUltimateFoxOS/FoxOS --recurse
         cd FoxOS
-        bash tools/toolchain.sh
         make all install_sdk
     - name: build
       run: bash build.sh
