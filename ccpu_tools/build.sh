@@ -13,8 +13,26 @@ if [ -d "foxtail" ]; then
 fi
 
 (
-	cd $DIR
-	bash build_foxos.sh
+	cd $DIR 
+
+	function build_dir {
+		(
+			cd $1
+			make -f /opt/foxos_sdk/program.mak PROGRAM_NAME=$2 USER_CFLAGS="-Wno-write-strings -Wno-format-overflow" USER_CPPFLAGS="-Wno-write-strings -Wno-format-overflow"
+		)
+	}
+
+	function build_file {
+		(
+			cd $1
+			make -f /opt/foxos_sdk/program.mak PROGRAM_NAME=$2 USER_CFLAGS="-Wno-write-strings -Wno-format-overflow" CSRC=$3 USER_CPPFLAGS="-Wno-write-strings -Wno-format-overflow"
+		)
+	}
+
+	build_dir assembler ccpu-as.elf
+
+	build_file tools ccpu-disas.elf disassembler.c
+	build_file tools ccpu-emu.elf emulator.c
 )
 
 mkdir -p foxtail
