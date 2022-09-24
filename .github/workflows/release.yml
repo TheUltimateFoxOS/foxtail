@@ -20,6 +20,8 @@ jobs:
       run: |
         git config --global user.email "you@example.com"
         git config --global user.name "Your Name"
+    - name: install sudo
+      run: apt install sudo -y
     - name: Install toolchain
       run: |
         git clone https://github.com/TheUltimateFoxOS/FoxOS --recurse
