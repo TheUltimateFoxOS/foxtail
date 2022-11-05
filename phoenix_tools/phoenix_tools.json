@@ -1,0 +1,14 @@
+{
+	"mappings": {
+		"src/tools/assembler/bin/phoenix-as": "/BIN/phoenix-as.elf",
+		"src/tools/disassembler/bin/phoenix-disasm": "/BIN/phoenix-disasm.elf",
+		"src/tools/emulator/bin/phoenix-emu": "/BIN/phoenix-emu.elf",
+
+		"src/examples/fib.asm": "/EXAMPLES/phoenix_fib.asm",
+		"src/examples/direct_jump.asm": "/EXAMPLES/phoenix_direct_jump.asm",
+		"src/examples/cond_jmp.asm": "/EXAMPLES/phoenix_cond_jump.asm",
+		"src/examples/memory.asm": "/EXAMPLES/phoenix_memory.asm"
+	},
+	"name": "phoenix tools",
+	"license": "src/LICENSE"
+}

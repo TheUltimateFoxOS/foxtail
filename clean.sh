@@ -11,7 +11,7 @@ if [ -d "pkgs" ]; then
 fi
 
 clean_dir intel_4004
-clean_dir ccpu_tools
+clean_dir phoenix_tools
 clean_dir intel_gpu
 clean_dir figlet
 clean_dir pride
