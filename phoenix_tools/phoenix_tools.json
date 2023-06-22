@@ -1,6 +1,6 @@
 {
 	"mappings": {
-		"src/tools/assembler/bin/phoenix-as": "/BIN/phoenix-as.elf",
+		"src/tools/assemblerv2/bin/phoenix-as": "/BIN/phoenix-as.elf",
 		"src/tools/disassembler/bin/phoenix-disasm": "/BIN/phoenix-disasm.elf",
 		"src/tools/emulator/bin/phoenix-emu": "/BIN/phoenix-emu.elf",
 
